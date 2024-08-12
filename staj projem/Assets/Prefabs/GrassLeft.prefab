@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7628286995196491649}
   - component: {fileID: 5176639247352725225}
-  - component: {fileID: 8569187392377422792}
+  - component: {fileID: 8882461935695901256}
   m_Layer: 0
   m_Name: GrassLeft
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8569187392377422792
+--- !u!61 &8882461935695901256
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
