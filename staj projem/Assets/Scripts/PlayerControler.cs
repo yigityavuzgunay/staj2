@@ -5,31 +5,54 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     Rigidbody2D playerRB;
+    Animator playerAnimator;
     public float moveSpeed = 1f;
 
     bool facingRight = true;
-
-    void awake()
+    void Awake()
     {
-
+        
     }
-
-    void start()
+    // Start is called before the first frame update
+    void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        playerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, playerRB.velocity.y);
+
+        if (playerRB.velocity.x < 0 && facingRight)
+        {
+            FlipFace();
+        }
+        else if (playerRB.velocity.x > 0 && !facingRight)
+        {
+            FlipFace();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
 
-    void update()
+    void HorizontalMove()
     {
-        playerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed PlayerRB.velocity.y);
+        playerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, playerRB.velocity.y);
+        playerAnimator.SetFloat("playerspeed", Mathf.Abs(playerRB.velocity.x));
+    }
 
-        if (playerRB.velocity.x > 0 &&)
-        {
-            //yüzünü çevir
-        }
-        else if (playerRB.velocity.x > 0 &&)
-        {
-
-        }
-    
+    void FlipFace()
+    {
+        facingRight = !facingRight;
+        Vector3 tempLocalScale = transform.localScale;
+        tempLocalScale.x *= -1;
+        transform.localScale = tempLocalScale;
+    }
+}

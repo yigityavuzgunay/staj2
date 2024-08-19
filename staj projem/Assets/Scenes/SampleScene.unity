@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 976066505}
   - component: {fileID: 976066509}
   - component: {fileID: 976066510}
-  - component: {fileID: 976066511}
+  - component: {fileID: 976066512}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -973,7 +973,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04647684, y: 0.0045570135}
+  m_Offset: {x: -0.04647684, y: 0.116372555}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -984,9 +984,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5229537, y: 1.5602543}
+  m_Size: {x: 1.5229537, y: 1.3366232}
   m_EdgeRadius: 0
---- !u!114 &976066511
+--- !u!114 &976066512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -995,10 +995,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 976066504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346921a2fbd1ad84abb44b479fd88f77, type: 3}
+  m_Script: {fileID: 11500000, guid: 8696e34a6911667499b4241381513a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  moveSpeed: 4
 --- !u!1001 &1030370642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1641,6 +1641,14 @@ PrefabInstance:
     - target: {fileID: 907248526048419207, guid: 02a829fe5e3971a4fba8e064d90626e3, type: 3}
       propertyPath: m_Name
       value: GrassMid (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069351195182995545, guid: 02a829fe5e3971a4fba8e064d90626e3, type: 3}
+      propertyPath: m_Size.y
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069351195182995545, guid: 02a829fe5e3971a4fba8e064d90626e3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2374,6 +2382,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassMid
       objectReference: {fileID: 0}
+    - target: {fileID: 1069351195182995545, guid: 02a829fe5e3971a4fba8e064d90626e3, type: 3}
+      propertyPath: m_Size.y
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069351195182995545, guid: 02a829fe5e3971a4fba8e064d90626e3, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2429,6 +2445,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7628286995196491649, guid: 819614982491450439671f8f681e7f70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882461935695901256, guid: 819614982491450439671f8f681e7f70, type: 3}
+      propertyPath: m_Size.y
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882461935695901256, guid: 819614982491450439671f8f681e7f70, type: 3}
+      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
