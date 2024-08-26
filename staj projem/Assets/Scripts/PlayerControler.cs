@@ -7,8 +7,14 @@ public class PlayerControler : MonoBehaviour
     Rigidbody2D playerRB;
     Animator playerAnimator;
     public float moveSpeed = 1f;
+    public float jumpSpeed = 1f, jumpFrequency =1f, nextJumpTime;
 
     bool facingRight = true;
+
+    public bool isGrounded = false;
+    public Transform groundCheckposition;
+    public float groundCheckRadius;
+    public LayerMask groundCheckLayer;
     void Awake()
     {
         
@@ -23,6 +29,8 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HorizontalMove();
+        OnGroundCheck();
 
         playerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, playerRB.velocity.y);
 
@@ -33,6 +41,11 @@ public class PlayerControler : MonoBehaviour
         else if (playerRB.velocity.x > 0 && !facingRight)
         {
             FlipFace();
+        }
+        if (Input.GetAxis("Vertical") > 0 && isGrounded && (nextJumpTime < Time.timeSinceLevelLoad))
+        {
+            nextJumpTime = Time.timeSinceLevelLoad + jumpFrequency;
+            Jump();
         }
     }
 
@@ -45,7 +58,7 @@ public class PlayerControler : MonoBehaviour
     void HorizontalMove()
     {
         playerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, playerRB.velocity.y);
-        playerAnimator.SetFloat("playerspeed", Mathf.Abs(playerRB.velocity.x));
+        playerAnimator.SetFloat("PlayerSpeed", Mathf.Abs(playerRB.velocity.x));
     }
 
     void FlipFace()
@@ -54,5 +67,17 @@ public class PlayerControler : MonoBehaviour
         Vector3 tempLocalScale = transform.localScale;
         tempLocalScale.x *= -1;
         transform.localScale = tempLocalScale;
+    }
+
+
+    void Jump()
+    {
+        playerRB.AddForce(new Vector2(0f, jumpSpeed));
+    }
+
+    void OnGroundCheck()
+    {
+       isGrounded = Physics2D.OverlapCircle(groundCheckposition.position, groundCheckRadius, groundCheckLayer);
+        playerAnimator.SetBool("isGroundedAnim", isGrounded);
     }
 }
