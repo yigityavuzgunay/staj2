@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerManager : MonoBehaviour
 
     Transform muzzle;
 
-    public Transform bullet;
+    public Transform bullet, floatingText;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class PlayerManager : MonoBehaviour
 
     public void GetDamage(float damage)
     {
+        Instantiate(floatingText, transform.position, Quaternion.identity).GetComponent<TextMesh>().text = damage.ToString();
         if ((health - damage) >= 0)
         {
             health -= damage;
@@ -53,6 +55,7 @@ public class PlayerManager : MonoBehaviour
         Transform tempBullet;
         tempBullet = Instantiate(bullet, muzzle.position, Quaternion.identity);
         tempBullet.GetComponent<Rigidbody2D>().AddForce(muzzle.forward * bulletSpeed);
+        DataManager.Instance.ShotBullet++;
    }
   
 }
